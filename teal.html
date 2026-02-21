@@ -48,6 +48,7 @@
     .n1 { color: transparent; -webkit-text-stroke: 2px var(--text-primary); }
     .n2 { color: var(--text-primary); text-shadow: 0 0 45px var(--accent-cyan), 0 0 90px var(--accent-cyan); }
     .tagline { font-size: var(--f-md); font-weight: 300; font-style: italic; color: var(--text-body); margin: 20px 0 22px; }
+    .tagline strong { color: var(--accent-cyan); font-style: normal; font-weight: 500; }
     .status { display: inline-flex; align-items: center; gap: 12px; background: rgba(0,212,255,0.09); border: 1px solid rgba(0,212,255,0.28); color: var(--accent-cyan); font-family: "JetBrains Mono", monospace; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; padding: 11px 26px 11px 17px; border-radius: 9999px; box-shadow: 0 0 35px var(--glow-cyan); }
     .sdot { width: 11px; height: 11px; background: var(--accent-cyan); border-radius: 50%; box-shadow: 0 0 22px var(--accent-cyan); animation: pulse 1.8s infinite; }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
@@ -82,19 +83,30 @@
     .freelance-entry { background: var(--glass); border: 1px solid var(--glass-border); border-left: 2px solid var(--accent-cyan); border-radius: 36px; padding: 18px 24px; margin-bottom: 14px; backdrop-filter: blur(28px); box-shadow: 0 22px 48px rgba(0,0,0,0.28); display: flex; flex-direction: column; gap: 4px; }
     .freelance-title { font-family: "Syne", sans-serif; font-size: var(--f-base); font-weight: 700; color: var(--text-primary); display: flex; align-items: center; gap: 10px; }
     .freelance-desc { font-size: 11.5px; font-weight: 300; color: var(--text-body); line-height: 1.55; }
+    .freelance-desc strong { color: var(--text-primary); }
     .proj { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 36px; padding: 26px 28px; margin-bottom: 18px; backdrop-filter: blur(28px); box-shadow: 0 22px 48px rgba(0,0,0,0.28); }
     .proj-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; flex-wrap: wrap; gap: 8px; }
     .proj-name { font-family: "Syne", sans-serif; font-size: var(--f-md); font-weight: 700; color: var(--text-primary); }
     .proj-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
     .proj-badges { display: flex; gap: 6px; flex-wrap: wrap; }
+    .badge { font-family: "JetBrains Mono", monospace; font-size: 8px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 9999px; padding: 3px 10px; background: rgba(0,212,255,0.09); border: 1px solid rgba(0,212,255,0.32); color: var(--accent-cyan); }
     .proj-date { font-family: "JetBrains Mono", monospace; font-size: 9px; color: rgba(139,154,184,0.6); white-space: nowrap; }
     .proj-stack { font-family: "JetBrains Mono", monospace; font-size: 10.6px; color: var(--accent-cyan); margin: 9px 0 6px; }
     .proj-desc { font-size: 12.6px; line-height: 1.66; margin-bottom: 16px; }
     .proj-desc strong { color: var(--text-primary); }
     .proj-links { display: flex; gap: 18px; }
     .plink { color: var(--accent-cyan); font-family: "JetBrains Mono", monospace; font-size: 9.6px; text-decoration: none; }
+
+    /* Education styled like variant 2 but in variant 1 style */
+    .edu-block { padding-left: 20px; border-left: 2px solid rgba(0,212,255,0.28); }
     .edu-name { font-family: "Syne", sans-serif; font-weight: 700; font-size: var(--f-base); color: var(--text-primary); }
-    .edu-detail { font-size: var(--f-sm); font-weight: 300; color: var(--text-body); }
+    .edu-meta { font-size: var(--f-sm); font-weight: 300; color: var(--text-body); margin-top: 6px; }
+    .edu-meta a { color: inherit; text-decoration: none; }
+    .edu-meta a:hover { color: var(--accent-cyan); }
+    .edu-certs { font-size: 11px; color: rgba(139,154,184,0.7); margin-top: 4px; }
+    .edu-certs a { color: inherit; text-decoration: none; }
+    .edu-certs a:hover { color: var(--accent-cyan); }
+    .edu-tag { font-family: "JetBrains Mono", monospace; font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(139,154,184,0.75); }
 
     @media (max-width: 700px) { .stats { grid-template-columns: repeat(2, 110px); } }
     @media (max-width: 900px) {
@@ -186,49 +198,52 @@
       }
       .page { width: 210mm !important; max-width: 210mm !important; height: 297mm !important; margin: 0 !important; overflow: hidden !important; background: #080b12 !important; display: grid !important; grid-template-columns: 1fr 182px !important; grid-template-rows: auto 1fr !important; }
       .ambient, .glow1, .glow2 { display: none !important; }
-      .hero { grid-column: 1 !important; grid-row: 1 !important; padding: 18px 34px 12px !important; border-bottom: 1px solid rgba(255,255,255,0.08) !important; }
-      .eyebrow { margin-bottom: 9px !important; letter-spacing: 0.28em !important; }
-      .name-block { margin-bottom: 9px !important; }
+      .hero { grid-column: 1 !important; grid-row: 1 !important; padding: 16px 32px 10px !important; border-bottom: 1px solid rgba(255,255,255,0.08) !important; }
+      .eyebrow { margin-bottom: 8px !important; letter-spacing: 0.28em !important; }
+      .name-block { margin-bottom: 8px !important; }
       .n1, .n2 { letter-spacing: -0.04em !important; }
-      .tagline { margin: 7px 0 10px !important; font-size: 11.5px !important; }
-      .status { font-size: 10.5px !important; padding: 7px 20px 7px 13px !important; letter-spacing: 0.2em !important; border: 1px solid rgba(0,212,255,0.35) !important; background: rgba(0,212,255,0.08) !important; }
-      .sdot { width: 9px !important; height: 9px !important; background: #00d4ff !important; }
-      .sidebar { grid-column: 2 !important; grid-row: 1 / span 2 !important; padding: 20px 14px 20px !important; background: #0c1320 !important; border-left: 1px solid rgba(255,255,255,0.08) !important; overflow: hidden !important; display: flex !important; flex-direction: column !important; justify-content: space-between !important; }
-      .sb { margin: 0 !important; padding: 0 !important; border-bottom: none !important; }
-      .sb:last-child { border-top: 1px solid rgba(255,255,255,0.07) !important; padding-top: 10px !important; margin-top: 0 !important; }
-      .sb-h { margin-bottom: 7px !important; font-size: 7.6px !important; letter-spacing: 0.24em !important; }
-      .chips { gap: 5px !important; }
-      .chip { font-size: 8.5px !important; padding: 3.5px 8px !important; background: #131b2d !important; border: 1px solid #1c2b42 !important; color: #8b9ab8 !important; border-radius: 9999px !important; }
+      .tagline { margin: 7px 0 9px !important; font-size: 11.5px !important; }
+      .status { font-size: 10px !important; padding: 6px 18px 6px 12px !important; letter-spacing: 0.18em !important; border: 1px solid rgba(0,212,255,0.35) !important; background: rgba(0,212,255,0.08) !important; }
+      .sdot { width: 8px !important; height: 8px !important; background: #00d4ff !important; }
+      .sidebar { grid-column: 2 !important; grid-row: 1 / span 2 !important; padding: 18px 12px 18px !important; background: #0c1320 !important; border-left: 1px solid rgba(255,255,255,0.08) !important; overflow: hidden !important; display: flex !important; flex-direction: column !important; justify-content: space-between !important; }
+      .sb { margin: 0 !important; padding: 0 0 8px !important; border-bottom: 1px solid rgba(255,255,255,0.06) !important; }
+      .sb:last-child { border-top: none !important; padding-top: 8px !important; margin-top: 0 !important; border-bottom: none !important; }
+      .sb-h { margin-bottom: 6px !important; font-size: 7.5px !important; letter-spacing: 0.24em !important; }
+      .chips { gap: 4px !important; }
+      .chip { font-size: 8.3px !important; padding: 3px 7px !important; background: #131b2d !important; border: 1px solid #1c2b42 !important; color: #8b9ab8 !important; border-radius: 9999px !important; }
       .chip.core { background: #092234 !important; border: 1px solid rgba(0,212,255,0.38) !important; color: #00d4ff !important; }
-      .contacts { gap: 8px !important; }
-      .ct { font-size: 8.2px !important; color: #8b9ab8 !important; gap: 7px !important; }
+      .contacts { gap: 7px !important; }
+      .ct { font-size: 8px !important; color: #8b9ab8 !important; gap: 6px !important; }
       .ct svg { width: 10px !important; height: 10px !important; fill: #4a6a7e !important; }
-      .main-area { grid-column: 1 !important; grid-row: 2 !important; padding: 14px 34px 16px !important; overflow: hidden !important; display: flex !important; flex-direction: column !important; }
-      .sh { margin: 12px 0 8px !important; }
+      .main-area { grid-column: 1 !important; grid-row: 2 !important; padding: 12px 32px 14px !important; overflow: hidden !important; display: flex !important; flex-direction: column !important; }
+      .sh { margin: 10px 0 7px !important; }
       .sh:first-child { margin-top: 0 !important; }
       .sh-label { font-size: var(--f-xs) !important; letter-spacing: 0.2em !important; }
-      .about { font-size: 10.5px !important; line-height: 1.55 !important; margin-bottom: 10px !important; }
-      .pill-row { margin-bottom: 12px !important; gap: 5px !important; }
-      .pill { font-size: 8.8px !important; padding: 4px 11px !important; background: rgba(0,212,255,0.08) !important; border: 1px solid rgba(0,212,255,0.3) !important; color: #00d4ff !important; }
-      .stats { margin: 0 0 14px !important; gap: 0 !important; grid-template-columns: repeat(4, 1fr) !important; justify-items: center !important; justify-content: stretch !important; width: 100% !important; }
-      .stat { width: 90px !important; height: 90px !important; border-radius: 45px !important; background: #131b2d !important; border: 1px solid rgba(0,212,255,0.22) !important; backdrop-filter: none !important; }
-      .sv { font-size: 16px !important; }
-      .sd { font-size: 6.2px !important; margin-top: 4px !important; color: #8b9ab8 !important; }
-      .freelance-entry { margin-bottom: 9px !important; padding: 10px 18px !important; border-radius: 18px !important; background: #131b2d !important; border: 1px solid #1c2b42 !important; border-left: 2px solid #00d4ff !important; backdrop-filter: none !important; gap: 3px !important; }
-      .freelance-title { font-size: 11.5px !important; gap: 10px !important; }
-      .freelance-desc { font-size: 9.5px !important; line-height: 1.4 !important; color: #8b9ab8 !important; }
-      .proj { margin-bottom: 9px !important; padding: 10px 16px !important; border-radius: 16px !important; background: #131b2d !important; border: 1px solid #1c2b42 !important; backdrop-filter: none !important; }
-      .proj-head { margin-bottom: 3px !important; gap: 5px !important; }
-      .proj-name { font-size: 12px !important; color: #f0f4ff !important; }
-      .proj-date { font-size: 7.8px !important; color: rgba(139,154,184,0.6) !important; }
-      .proj-stack { margin: 4px 0 3px !important; font-size: 8.8px !important; color: #00d4ff !important; line-height: 1.4 !important; }
-      .proj-desc { font-size: 9.5px !important; margin-bottom: 5px !important; line-height: 1.42 !important; color: #8b9ab8 !important; }
+      .about { font-size: 10.3px !important; line-height: 1.52 !important; margin-bottom: 9px !important; }
+      .pill-row { margin-bottom: 10px !important; gap: 4px !important; }
+      .pill { font-size: 8.6px !important; padding: 3px 10px !important; background: rgba(0,212,255,0.08) !important; border: 1px solid rgba(0,212,255,0.3) !important; color: #00d4ff !important; }
+      .stats { margin: 0 0 12px !important; gap: 0 !important; grid-template-columns: repeat(4, 1fr) !important; justify-items: center !important; justify-content: stretch !important; width: 100% !important; }
+      .stat { width: 88px !important; height: 88px !important; border-radius: 44px !important; background: #131b2d !important; border: 1px solid rgba(0,212,255,0.22) !important; backdrop-filter: none !important; }
+      .sv { font-size: 15px !important; }
+      .sd { font-size: 6px !important; margin-top: 3px !important; color: #8b9ab8 !important; }
+      .freelance-entry { margin-bottom: 8px !important; padding: 8px 16px !important; border-radius: 16px !important; background: #131b2d !important; border: 1px solid #1c2b42 !important; border-left: 2px solid #00d4ff !important; backdrop-filter: none !important; gap: 2px !important; }
+      .freelance-title { font-size: 10.8px !important; gap: 8px !important; }
+      .freelance-desc { font-size: 9px !important; line-height: 1.38 !important; color: #8b9ab8 !important; }
+      .proj { margin-bottom: 8px !important; padding: 9px 14px !important; border-radius: 14px !important; background: #131b2d !important; border: 1px solid #1c2b42 !important; backdrop-filter: none !important; }
+      .proj-head { margin-bottom: 2px !important; gap: 4px !important; }
+      .proj-name { font-size: 11.5px !important; color: #f0f4ff !important; }
+      .proj-date { font-size: 7.5px !important; color: rgba(139,154,184,0.6) !important; }
+      .badge { font-size: 7px !important; padding: 2px 7px !important; background: rgba(0,212,255,0.08) !important; border-color: rgba(0,212,255,0.28) !important; color: #00d4ff !important; }
+      .proj-stack { margin: 3px 0 2px !important; font-size: 8.5px !important; color: #00d4ff !important; line-height: 1.38 !important; }
+      .proj-desc { font-size: 9px !important; margin-bottom: 4px !important; line-height: 1.4 !important; color: #8b9ab8 !important; }
       .proj-desc strong { color: #f0f4ff !important; }
-      .proj-links { gap: 14px !important; }
-      .plink { font-size: 8.2px !important; color: #00d4ff !important; }
-      .sh:last-of-type { margin-top: auto !important; }
-      .edu-name { font-size: 11.5px !important; color: #f0f4ff !important; }
-      .edu-detail { font-size: 9.5px !important; color: #8b9ab8 !important; }
+      .proj-links { gap: 12px !important; }
+      .plink { font-size: 7.8px !important; color: #00d4ff !important; }
+      .edu-block { padding-left: 14px !important; border-left: 2px solid rgba(0,212,255,0.28) !important; }
+      .edu-name { font-size: 11px !important; color: #f0f4ff !important; }
+      .edu-meta { font-size: 9.2px !important; color: #8b9ab8 !important; margin-top: 4px !important; }
+      .edu-certs { font-size: 9px !important; color: rgba(139,154,184,0.65) !important; margin-top: 3px !important; }
+      .edu-tag { font-size: 8px !important; color: rgba(139,154,184,0.7) !important; }
     }
   </style>
 </head>
@@ -242,10 +257,10 @@
     <header class="hero">
       <div class="eyebrow">Fullstack Developer · React · Next.js · TypeScript</div>
       <div class="name-block">
-        <span class="n1">АРТЁМ</span>
+        <span class="n1">АРТЁМ&nbsp;</span>
         <span class="n2">САФРОНОВ</span>
       </div>
-      <p class="tagline">Frontend depth — <span style="color: var(--accent-cyan)">Full-stack breadth</span></p>
+      <p class="tagline"><strong>T</strong>-Shaped Insight — Front Sight, Back Depth</p>
       <a class="status" href="https://linkedin.com/in/artyhoo" target="_blank" rel="noopener" style="text-decoration:none; cursor:pointer;"><span class="sdot"></span> OPEN TO OPPORTUNITIES</a>
     </header>
 
@@ -255,15 +270,15 @@
         <div class="chips">
           <span class="chip core">React 19</span>
           <span class="chip core">Next.js 15</span>
-          <span class="chip core">TypeScript</span>
-          <span class="chip core">Tailwind 4</span>
-          <span class="chip core">CSS Modules</span>
-          <span class="chip">Redux/Zustand</span>
+          <span class="chip core">Apollo GQL</span>
+          <span class="chip">TypeScript</span>
+          <span class="chip">Tailwind 4</span>
+          <span class="chip">CSS Modules</span>
           <span class="chip">TanStack Query</span>
-          <span class="chip">Apollo GQL</span>
           <span class="chip">Shadcn/ui</span>
           <span class="chip">FSD</span>
           <span class="chip">Zod</span>
+          <span class="chip">UI/UX</span>
         </div>
       </div>
       <div class="sb">
@@ -271,8 +286,8 @@
         <div class="chips">
           <span class="chip core">Jest/Vitest</span>
           <span class="chip core">Storybook</span>
-          <span class="chip">RTL</span>
           <span class="chip">Playwright</span>
+          <span class="chip">RTL</span>
         </div>
       </div>
       <div class="sb">
@@ -280,9 +295,8 @@
         <div class="chips">
           <span class="chip core">NestJS</span>
           <span class="chip core">PostgreSQL</span>
-          <span class="chip">Prisma</span>
           <span class="chip">Drizzle</span>
-          <span class="chip">FastAPI</span>
+          <span class="chip">Prisma</span>
           <span class="chip">SQLite</span>
         </div>
       </div>
@@ -292,28 +306,26 @@
           <span class="chip core">CI/CD</span>
           <span class="chip core">Docker</span>
           <span class="chip">GitHub Actions</span>
+          <span class="chip">Linux/OS</span>
+          <span class="chip">сети</span>
         </div>
       </div>
       <div class="sb">
         <div class="sb-h">CS Base</div>
         <div class="chips">
-          <span class="chip core">Паттерны GoF</span>
-          <span class="chip core">Архитектура</span>
-          <span class="chip">Алгоритмы</span>
-          <span class="chip core">SOLID</span>
-          <span class="chip">SQL</span>
-          <span class="chip">сети</span>
+          <span class="chip core">600★ LeetCode</span>
+          <span class="chip">Паттерны GoF</span>
+          <span class="chip">Архитектура</span>
           <span class="chip">C/C++</span>
-          <span class="chip">UI/UX</span>
-          <span class="chip">Web-design</span>
+          <span class="chip">ASM</span>
         </div>
       </div>
       <div class="sb">
         <div class="sb-h">Контакты</div>
         <div class="contacts">
-          <a class="ct" href="mailto:devartyhoo@gmail.com">
+          <a class="ct" href="mailto:devart@gmail.com">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            devartyhoo@gmail.com
+            devart@gmail.com
           </a>
           <a class="ct" href="https://github.com/Yhooi2">
             <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -340,9 +352,12 @@
     </aside>
 
     <main class="main-area">
-      <div class="sh"><span class="sh-num">01/</span><span class="sh-label">О себе</span><span class="sh-line"></span></div>
+      <div class="sh"><span class="sh-num">00/</span><span class="sh-label">О себе</span><span class="sh-line"></span></div>
       <p class="about">
-        Fullstack-разработчик с <strong>экспертизой во фронтенде</strong> (React 19, Next.js 15, TypeScript), <strong>NestJS</strong> и системным пониманием стека — от ОС и сетей до SQL и архитектурных паттернов GoF. <strong>T-shaped инженер</strong> с базой в Web-design и UI/UX и опытом <strong>контрактной разработки (ИП)</strong> для корпоративных клиентов.
+        Fullstack-разработчик с экспертизой во фронтенде (React 19, Next.js 15, TypeScript),
+        <strong>NestJS</strong> и системным пониманием стека — от ОС и сетей до SQL и архитектурных паттернов GoF.
+        <strong>T-shaped инженер</strong> с базой в Web-design и UI/UX и опытом
+        <strong>контрактной разработки (ИП)</strong> для корпоративных клиентов.
       </p>
       <div class="pill-row">
         <span class="pill">REST · GraphQL</span>
@@ -374,11 +389,11 @@
         </div>
       </div>
 
-      <div class="sh"><span class="sh-num">02/</span><span class="sh-label">Проекты & Контракты</span><span class="sh-line"></span></div>
+      <div class="sh"><span class="sh-num">01/</span><span class="sh-label">Проекты & Контракты</span><span class="sh-line"></span></div>
 
       <div class="freelance-entry">
         <div class="freelance-title">Контрактная разработка (ИП) <span class="proj-date">2023 — н.в.</span></div>
-        <div class="freelance-desc">Разработка веб-приложений для корпоративных клиентов (B2B). Работа через ИП, проекты под NDA.</div>
+        <div class="freelance-desc">Разработка встраиваемых динамических виджетов с таблицами и графиками для <strong>корпоративных клиентов (B2B)</strong>. Работа по ИП КЭП, проекты под NDA.</div>
       </div>
 
       <div class="proj">
@@ -406,8 +421,8 @@
             <span class="proj-date">2024</span>
           </div>
         </div>
-        <div class="proj-stack">Next.js 15 · React 19 · Supabase · React Query · Tailwind CSS</div>
-        <p class="proj-desc"><strong>Задеплоенная</strong> booking-платформа аренды luxury-кабин: авторизация, фильтрация, бронирование, личный кабинет.</p>
+        <div class="proj-stack">Next.js 15 · React 19 · PostgreSQL · TanStack Query · Tailwind CSS</div>
+        <p class="proj-desc"><strong>Задеплоенная</strong> booking-платформа аренды кабин: авторизация, фильтрация, бронирование, личный кабинет.</p>
         <div class="proj-links">
           <a class="plink" href="https://wildhaven-website.vercel.app/">Site</a>
           <a class="plink" href="https://wildhaven-embedded.vercel.app/">Guest area</a>
@@ -446,10 +461,27 @@
         </div>
       </div>
 
-      <div class="sh"><span class="sh-num">03/</span><span class="sh-label">Образование</span><span class="sh-line"></span></div>
-      <div class="edu-name">Университет МФПУ Москва</div>
-      <div class="edu-detail">IT-образование · Fullstack Development · 2026</div>
-    </main>
-  </div>
+      <div class="sh"><span class="sh-num">02/</span><span class="sh-label">Образование</span><span class="sh-line"></span></div>
+      <div class="edu-block">
+        <div class="edu-name">МФПУ · Профильное IT образование <span style="color: rgba(139,154,184,0.6); font-weight: 300; font-size: 12px; font-family: 'DM Sans', sans-serif;">· Fullstack · 2026</span></div>
+        <div class="edu-meta">
+          <span class="edu-tag">курсы</span> &nbsp;·&nbsp; МФТИ &nbsp;·&nbsp;
+          <a href="https://stepik.org/org/compscicenter" target="_blank">CS Center</a> &nbsp;·&nbsp;
+          <a href="https://cs50.harvard.edu/x/" target="_blank">Harvard CS50</a> &nbsp;·&nbsp;
+          <a href="https://stepik.org/org/fefu" target="_blank">ДВФУ</a>
+        </div>
+        <div class="edu-certs">
+          <a href="https://stepik.org/cert/2340486" target="_blank">Тренажер SQL</a>
+          &nbsp;·&nbsp;
+          <a href="https://stepik.org/cert/2331544" target="_blank">Введение в БД</a>
+          &nbsp;·&nbsp;
+          <a href="https://stepik.org/cert/2346365" target="_blank">Linux</a>
+          &nbsp;·&nbsp;
+          <a href="https://stepik.org/cert/2312005" target="_blank">ОС</a>
+          &nbsp;·&nbsp;
+                <a href="https://stepik.org/cert/2292048" target="_blank">Архитектура ЭВМ</a>
+      </div>
+    </div>
+  </main>
+</div>
 </body>
-</html>
