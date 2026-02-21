@@ -23,7 +23,7 @@
     .eyebrow::before{content:"›";font-size:14px}
     .name-block{display:flex;align-items:baseline;gap:0.22em;margin-bottom:10px;line-height:1}
     .n1{font-family:"Syne",sans-serif;font-size:var(--f-hero);font-weight:800;letter-spacing:-0.035em;-webkit-text-stroke:1.5px var(--t-primary);color:transparent;white-space:nowrap}
-    .n2{font-family:"Syne",sans-serif;font-size:var(--f-hero);font-weight:800;letter-spacing:-0.035em;color:#fff;text-shadow:0 0 25px var(--neon),0 0 50px var(--neon),0 0 80px var(--neon);white-space:nowrap}
+    .n2{font-family:"Syne",sans-serif;font-size:var(--f-hero);font-weight:800;letter-spacing:-0.035em;color:#e2f5eb;text-shadow:0 0 18px rgba(0,255,159,0.4);white-space:nowrap}
     .name-underline{display:block;width:52px;height:3px;background:var(--neon);box-shadow:0 0 10px var(--neon),0 0 22px var(--neon);border-radius:1px;margin-top:8px}
     .tagline{font-family:"DM Sans",sans-serif;font-size:var(--f-md);font-weight:300;font-style:italic;color:var(--t-body);margin:16px 0 14px;line-height:1.4}
     .tagline strong{color:var(--neon);font-weight:500;font-style:normal}
@@ -113,7 +113,7 @@
       .plink:hover{color:#7fffbf}
       .plink:hover::after{width:100%}
       .ct:hover svg{fill:var(--neon);transition:fill 0.2s}
-      .n2:hover{text-shadow:0 0 30px rgba(0,255,159,0.7),0 0 60px rgba(0,255,159,0.35);transition:text-shadow 0.4s}
+      .n2:hover{text-shadow:0 0 22px rgba(0,255,159,0.55);transition:text-shadow 0.4s}
     }
     @media screen{
       @keyframes fadeInUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
@@ -213,15 +213,16 @@
       <div class="chips">
         <span class="chip core">React 19</span>
         <span class="chip core">Next.js 15</span>
-        <span class="chip core">TypeScript</span>
-        <span class="chip core">Tailwind 4</span>
-        <span class="chip core">CSS Modules</span>
-        <span class="chip">Redux/Zustand</span>
+        <span class="chip core">Apollo GQL</span>
+        <span class="chip">TypeScript</span>
+        <span class="chip">Tailwind 4</span>
+        <span class="chip">CSS Modules</span>
         <span class="chip">TanStack Query</span>
-        <span class="chip">Apollo GQL</span>
         <span class="chip">Shadcn/ui</span>
         <span class="chip">FSD</span>
         <span class="chip">Zod</span>
+        <span class="chip">UI/UX</span>
+        <span class="chip">Web-design</span>
       </div>
     </div>
     <div class="sb">
@@ -229,8 +230,8 @@
       <div class="chips">
         <span class="chip core">Jest/Vitest</span>
         <span class="chip core">Storybook</span>
-        <span class="chip">RTL</span>
         <span class="chip">Playwright</span>
+        <span class="chip">RTL</span>
       </div>
     </div>
     <div class="sb">
@@ -238,9 +239,8 @@
       <div class="chips">
         <span class="chip core">NestJS</span>
         <span class="chip core">PostgreSQL</span>
-        <span class="chip">Prisma</span>
         <span class="chip">Drizzle</span>
-        <span class="chip">FastAPI</span>
+        <span class="chip">Prisma</span>
         <span class="chip">SQLite</span>
       </div>
     </div>
@@ -250,20 +250,17 @@
         <span class="chip core">CI/CD</span>
         <span class="chip core">Docker</span>
         <span class="chip">GitHub Actions</span>
+        <span class="chip">Linux/OS</span>
+        <span class="chip">сети</span>
       </div>
     </div>
     <div class="sb">
       <div class="sb-h">CS Base</div>
       <div class="chips">
-        <span class="chip core">Паттерны GoF</span>
-        <span class="chip core">Архитектура</span>
-        <span class="chip core">SOLID</span>
-        <span class="chip">Алгоритмы</span>
-        <span class="chip">SQL</span>
-        <span class="chip">сети</span>
+        <span class="chip core">600★ LeetCode</span>
+        <span class="chip">Паттерны GoF</span>
+        <span class="chip">Архитектура</span>
         <span class="chip">C/C++</span>
-        <span class="chip">UI/UX</span>
-        <span class="chip">Web-design</span>
       </div>
     </div>
     <div class="sb">
@@ -300,7 +297,7 @@
   <main class="main-area">
     <div class="sh"><span class="sh-num">00/</span><span class="sh-label">О себе</span><span class="sh-line"></span></div>
     <p class="about">
-      Fullstack-разработчик с <strong>экспертизой во фронтенде</strong> (React 19, Next.js 15, TypeScript),
+      Fullstack-разработчик с экспертизой во фронтенде (React 19, Next.js 15, TypeScript),
       <strong>NestJS</strong> и системным пониманием стека — от ОС и сетей до SQL и архитектурных паттернов GoF.
       <strong>T-shaped инженер</strong> с базой в Web-design и UI/UX и опытом
       <strong>контрактной разработки (ИП)</strong> для корпоративных клиентов.
@@ -337,7 +334,7 @@
     <div class="sh"><span class="sh-num">01/</span><span class="sh-label">Проекты & Контракты</span><span class="sh-line"></span></div>
     <div class="freelance-entry">
       <div class="freelance-title">Контрактная разработка (ИП)<span class="proj-date">2023 — н.в.</span></div>
-      <div class="freelance-desc">Разработка веб-приложений для корпоративных клиентов (B2B). Работа через ИП, проекты под NDA.</div>
+      <div class="freelance-desc">Разработка встраиваемых динамических виджетов с таблицами и графиками для <strong style="color:var(--t-primary)">корпоративных клиентов (B2B)</strong>. Работа через ИП, проекты под NDA.</div>
     </div>
     <div class="proj">
       <div class="proj-head">
@@ -359,8 +356,8 @@
         <div class="proj-badges"><span class="badge">commercial</span><span class="badge">deployed</span><span class="badge">live</span></div>
         <span class="proj-date">2024</span>
       </div>
-      <div class="proj-stack">Next.js 15 · React 19 · Supabase · React Query · Tailwind CSS</div>
-      <p class="proj-desc"><strong>Задеплоенная</strong> booking-платформа аренды luxury-кабин: авторизация, фильтрация, бронирование, личный кабинет.</p>
+      <div class="proj-stack">Next.js 15 · React 19 · PostgreSQL · TanStack Query · Tailwind CSS</div>
+      <p class="proj-desc"><strong>Задеплоенная</strong> booking-платформа аренды кабин: авторизация, фильтрация, бронирование, личный кабинет.</p>
       <div class="proj-links">
         <a class="plink" href="https://wildhaven-website.vercel.app/">Site</a>
         <a class="plink" href="https://wildhaven-embedded.vercel.app/">Guest area</a>
@@ -392,8 +389,8 @@
     </div>
 
     <div class="sh"><span class="sh-num">02/</span><span class="sh-label">Образование</span><span class="sh-line"></span></div>
-    <div class="edu-name">Университет МФПУ Москва</div>
-    <div class="edu-detail">IT-образование · Fullstack Development · 2026</div>
+    <div class="edu-name">МФПУ · Информатика и вычислительная техника · Бакалавр · 2026</div>
+    <div class="edu-detail">Курсы: МФТИ · CS Center · Harvard CS50</div>
   </main>
 </div>
 </body>
