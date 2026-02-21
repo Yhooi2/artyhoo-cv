@@ -66,6 +66,7 @@
     .freelance-entry{background:var(--card);border:1px solid var(--gr);border-left:2px solid var(--neon);border-radius:4px;padding:10px 14px 10px 18px;margin-bottom:10px;display:flex;flex-direction:column;gap:2px;box-shadow:0 0 18px var(--neon-dim)}
     .freelance-title{font-family:"Syne",sans-serif;font-size:var(--f-base);font-weight:700;color:var(--t-primary);display:flex;align-items:center;gap:8px}
     .freelance-desc{font-size:11px;font-weight:300;color:var(--t-body);line-height:1.55}
+    .freelance-desc strong{color:var(--t-primary)}
     .proj{background:var(--card);border:1px solid var(--gr);border-radius:4px;padding:14px 16px 12px 20px;margin-bottom:7px;position:relative;box-shadow:0 0 18px var(--neon-dim)}
     .proj::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--neon);box-shadow:0 0 12px var(--neon)}
     .proj-head{display:flex;align-items:center;gap:8px;margin-bottom:4px;flex-wrap:wrap}
@@ -79,10 +80,15 @@
     .proj-links{display:flex;gap:14px}
     .plink{font-family:"JetBrains Mono",monospace;font-size:9px;font-weight:700;letter-spacing:0.1em;color:var(--neon);text-decoration:none}
 
-    /* Education aligned with project card inner content */
     .edu-block{padding-left:20px;border-left:2px solid var(--gr-hi)}
     .edu-name{font-family:"Syne",sans-serif;font-weight:700;font-size:var(--f-base);color:var(--t-primary)}
-    .edu-detail{font-size:var(--f-sm);font-weight:300;color:var(--t-body)}
+    .edu-meta{font-size:var(--f-sm);font-weight:300;color:var(--t-body);margin-top:6px}
+    .edu-meta a{color:inherit;text-decoration:none}
+    .edu-meta a:hover{color:var(--neon)}
+    .edu-tag{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--t-mid)}
+    .edu-certs{font-size:11px;color:var(--t-mid);margin-top:4px}
+    .edu-certs a{color:inherit;text-decoration:none}
+    .edu-certs a:hover{color:var(--neon)}
 
     @media print{
       @page{size:A4 portrait;margin:0}
@@ -96,6 +102,7 @@
         --neon:#00ff9f !important;
         --neon-dim:rgba(0,255,159,0.12) !important;--neon-edge:rgba(0,255,159,0.3) !important;
         --gr:rgba(0,255,159,0.12) !important;--gr-hi:rgba(0,255,159,0.2) !important;
+        --t-mid:#5a7a62 !important;
       }
       .page{width:210mm !important;max-width:210mm !important;min-height:297mm !important;margin:0 !important;background:#030a05 !important;display:grid !important;grid-template-columns:1fr 182px !important;grid-template-rows:auto 1fr !important}
       .page::before{opacity:0.06 !important;background-size:60px 60px !important}
@@ -138,9 +145,11 @@
       .proj-links{gap:12px !important}
       .plink{font-size:8px !important;color:#00ff9f !important}
       .badge{font-size:7px !important;padding:1px 5px !important;background:rgba(0,255,159,0.1) !important;border-color:rgba(0,255,159,0.25) !important;color:#00ff9f !important}
-      .edu-block{padding-left:16px !important}
+      .edu-block{padding-left:16px !important;border-left:2px solid rgba(0,255,159,0.2) !important}
       .edu-name{font-size:11px !important;color:#e2f5eb !important}
-      .edu-detail{font-size:9.2px !important;color:#a0e8c4 !important}
+      .edu-meta{font-size:9.2px !important;color:#a0e8c4 !important;margin-top:4px !important}
+      .edu-tag{font-size:8px !important;color:#5a7a62 !important}
+      .edu-certs{font-size:9px !important;color:#5a7a62 !important;margin-top:3px !important}
     }
   </style>
 </head>
@@ -216,9 +225,9 @@
     <div class="sb">
       <div class="sb-h">Контакты</div>
       <div class="contacts">
-        <a class="ct" href="mailto:art.safronov.dev@gmail.com">
+        <a class="ct" href="mailto:devart@gmail.com">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          art.safronov.dev@gmail.com
+          devart@gmail.com
         </a>
         <a class="ct" href="https://github.com/Yhooi2">
           <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -247,9 +256,9 @@
   <main class="main-area">
     <div class="sh"><span class="sh-num">00/</span><span class="sh-label">О себе</span><span class="sh-line"></span></div>
     <p class="about">
-      Fullstack-разработчик с экспертизой во фронтенде (React 19, Next.js 15, TypeScript), 
-      <strong>NestJS</strong> и системным пониманием стека — от ОС и сетей до SQL и архитектурных паттернов GoF. 
-      <strong>T-shaped инженер</strong> с базой в Web-design и UI/UX и опытом 
+      Fullstack-разработчик с экспертизой во фронтенде (React 19, Next.js 15, TypeScript),
+      <strong>NestJS</strong> и системным пониманием стека — от ОС и сетей до SQL и архитектурных паттернов GoF.
+      <strong>T-shaped инженер</strong> с базой в Web-design и UI/UX и опытом
       <strong>контрактной разработки (ИП)</strong> для корпоративных клиентов.
     </p>
     <div class="pill-row">
@@ -265,14 +274,14 @@
     <div class="stats">
       <div class="stat"><div class="sv">ИП<span style="color:var(--neon)"> ↗</span></div><div class="sd">Контракт · 2023—н.в.</div></div>
       <div class="stat"><div class="sv">4<span style="color:var(--neon)">+</span></div><div class="sd">задеплоенных проектов</div></div>
-      <div class="stat"><div class="sv">NPM<span style="color:var(--neon)"> ✓</span></div><div class="sd">published lib<br/><small>shadcn-glass-ui</small></div></div>
-      <div class="stat"><div class="sv">22<span style="color:var(--neon)"> ★</span></div><div class="sd">GitHub Stars<br/><small>shadcn-glass-ui</small></div></div>
+      <div class="stat"><div class="sv">NPM<span style="color:var(--neon)"> ✓</span></div><div class="sd">published lib<br/>shadcn-glass-ui</div></div>
+      <div class="stat"><div class="sv">22<span style="color:var(--neon)"> ★</span></div><div class="sd">GitHub Stars<br/>shadcn-glass-ui</div></div>
     </div>
 
     <div class="sh"><span class="sh-num">01/</span><span class="sh-label">Проекты & Контракты</span><span class="sh-line"></span></div>
     <div class="freelance-entry">
       <div class="freelance-title">Контрактная разработка (ИП)<span class="proj-date">2023 — н.в.</span></div>
-      <div class="freelance-desc">Разработка встраиваемых динамических виджетов с таблицами и графиками для <strong style="color:var(--t-primary)">корпоративных клиентов (B2B)</strong>. Работа по ИП КЭП, проекты под NDA.</div>
+      <div class="freelance-desc">Разработка встраиваемых динамических виджетов с таблицами и графиками для <strong>корпоративных клиентов (B2B)</strong>. Работа по ИП КЭП, проекты под NDA.</div>
     </div>
     <div class="proj">
       <div class="proj-head"><span class="proj-name">shadcn-glass-ui</span><div class="proj-badges"><span class="badge">★ 22</span><span class="badge">npm</span><span class="badge">open source</span></div><span class="proj-date">2024 — н.в.</span></div>
@@ -313,17 +322,22 @@
     <div class="sh"><span class="sh-num">02/</span><span class="sh-label">Образование</span><span class="sh-line"></span></div>
     <div class="edu-block">
       <div class="edu-name">МФПУ · Профильное IT образование <span style="color:var(--t-mid);font-weight:300;font-size:12px;font-family:'DM Sans',sans-serif;">· Fullstack · 2026</span></div>
-      <div class="edu-detail" style="margin-top:6px;"><span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--t-mid);">курсы</span> &nbsp;·&nbsp; МФТИ &nbsp;·&nbsp; <a href="https://stepik.org/org/compscicenter" target="_blank" style="color:inherit;text-decoration:none;">CS Center</a> &nbsp;·&nbsp; <a href="https://cs50.harvard.edu/x/" target="_blank" style="color:inherit;text-decoration:none;">Harvard CS50</a> &nbsp;·&nbsp; <a href="https://stepik.org/org/fefu" target="_blank" style="color:inherit;text-decoration:none;">ДВФУ</a></div>
-      <div class="edu-detail" style="margin-top:4px;color:var(--t-mid);font-size:11px;">
-        <a href="https://stepik.org/cert/2340486" target="_blank" style="color:inherit;text-decoration:none;">Тренажер SQL</a>
+      <div class="edu-meta">
+        <span class="edu-tag">курсы</span> &nbsp;·&nbsp; МФТИ &nbsp;·&nbsp;
+        <a href="https://stepik.org/org/compscicenter" target="_blank">CS Center</a> &nbsp;·&nbsp;
+        <a href="https://cs50.harvard.edu/x/" target="_blank">Harvard CS50</a> &nbsp;·&nbsp;
+        <a href="https://stepik.org/org/fefu" target="_blank">ДВФУ</a>
+      </div>
+      <div class="edu-certs">
+        <a href="https://stepik.org/cert/2340486" target="_blank">Тренажер SQL</a>
         &nbsp;·&nbsp;
-        <a href="https://stepik.org/cert/2331544" target="_blank" style="color:inherit;text-decoration:none;">Введение в БД</a>
+        <a href="https://stepik.org/cert/2331544" target="_blank">Введение в БД</a>
         &nbsp;·&nbsp;
-        <a href="https://stepik.org/cert/2346365" target="_blank" style="color:inherit;text-decoration:none;">Linux</a>
+        <a href="https://stepik.org/cert/2346365" target="_blank">Linux</a>
         &nbsp;·&nbsp;
-        <a href="https://stepik.org/cert/2312005" target="_blank" style="color:inherit;text-decoration:none;">ОС</a>
+        <a href="https://stepik.org/cert/2312005" target="_blank">ОС</a>
         &nbsp;·&nbsp;
-        <a href="https://stepik.org/cert/2292048" target="_blank" style="color:inherit;text-decoration:none;">Архитектура ЭВМ</a>
+        <a href="https://stepik.org/cert/2292048" target="_blank">Архитектура ЭВМ</a>
       </div>
     </div>
   </main>
