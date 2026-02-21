@@ -31,7 +31,6 @@
     .sdot{width:9px;height:9px;border-radius:50%;background:var(--neon);box-shadow:0 0 15px var(--neon),0 0 30px var(--neon);animation:pulse 2s infinite}
     @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.35}}
 
-    /* ↓ padding-right увеличен с 18px до 30px — широкие чипы теперь не двоятся */
     .sidebar{grid-column:2;grid-row:2;background:var(--sb-bg);border-left:1px solid var(--gr);padding:40px 18px 36px 18px;display:flex;flex-direction:column;z-index:2;position:relative}
     .sidebar::before{content:"";position:absolute;top:0;right:0;width:188px;height:3px;background:linear-gradient(270deg,var(--neon) 0%,#00e0ff 70%,transparent)}
     .sb{margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid var(--gr)}
@@ -79,6 +78,9 @@
     .proj-desc strong{color:var(--t-primary)}
     .proj-links{display:flex;gap:14px}
     .plink{font-family:"JetBrains Mono",monospace;font-size:9px;font-weight:700;letter-spacing:0.1em;color:var(--neon);text-decoration:none}
+
+    /* Education aligned with project card inner content */
+    .edu-block{padding-left:20px;border-left:2px solid var(--gr-hi)}
     .edu-name{font-family:"Syne",sans-serif;font-weight:700;font-size:var(--f-base);color:var(--t-primary)}
     .edu-detail{font-size:var(--f-sm);font-weight:300;color:var(--t-body)}
 
@@ -98,7 +100,6 @@
       .page{width:210mm !important;max-width:210mm !important;min-height:297mm !important;margin:0 !important;background:#030a05 !important;display:grid !important;grid-template-columns:1fr 182px !important;grid-template-rows:auto 1fr !important}
       .page::before{opacity:0.06 !important;background-size:60px 60px !important}
       .hero{grid-column:1 !important;grid-row:1 !important;padding:16px 32px 10px !important;border-bottom:1px solid rgba(0,255,159,0.12) !important}
-      /* ↓ padding-right увеличен с 14px до 22px для PDF */
       .sidebar{grid-column:2 !important;grid-row:1 / span 2 !important;padding:22px 14px 26px 14px !important;background:#040d06 !important;border-left:1px solid rgba(0,255,159,0.1) !important;display:flex !important;flex-direction:column !important;justify-content:space-between !important;gap:18px !important}
       .sb{margin:0 !important;padding:0 0 12px 0 !important;border-bottom:1px solid rgba(0,255,159,0.1) !important}
       .sb:last-child{margin-top:auto !important;border-top:1px solid rgba(0,255,159,0.16) !important;padding-top:18px !important;padding-bottom:0 !important;border-bottom:none !important}
@@ -137,6 +138,7 @@
       .proj-links{gap:12px !important}
       .plink{font-size:8px !important;color:#00ff9f !important}
       .badge{font-size:7px !important;padding:1px 5px !important;background:rgba(0,255,159,0.1) !important;border-color:rgba(0,255,159,0.25) !important;color:#00ff9f !important}
+      .edu-block{padding-left:16px !important}
       .edu-name{font-size:11px !important;color:#e2f5eb !important}
       .edu-detail{font-size:9.2px !important;color:#a0e8c4 !important}
     }
@@ -214,9 +216,9 @@
     <div class="sb">
       <div class="sb-h">Контакты</div>
       <div class="contacts">
-        <a class="ct" href="/cdn-cgi/l/email-protection#4f2b2a392e3d3b362720200f28222e2623612c2022">
+        <a class="ct" href="mailto:art.safronov.dev@gmail.com">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <span class="__cf_email__" data-cfemail="264243504754525f4e494966414b474f4a0845494b">[email&#160;protected]</span>
+          art.safronov.dev@gmail.com
         </a>
         <a class="ct" href="https://github.com/Yhooi2">
           <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -309,18 +311,20 @@
     </div>
 
     <div class="sh"><span class="sh-num">02/</span><span class="sh-label">Образование</span><span class="sh-line"></span></div>
-        <div class="edu-name">МФПУ · Профильное IT образование <span style="color:var(--t-mid);font-weight:300;font-size:12px;font-family:'DM Sans',sans-serif;">· Fullstack · 2026</span></div>
-    <div class="edu-detail" style="margin-top:6px;"><span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--t-mid);">курсы</span> &nbsp;·&nbsp; МФТИ &nbsp;·&nbsp; <a href="https://stepik.org/org/compscicenter" target="_blank" style="color:inherit;text-decoration:none;">CS Center</a> &nbsp;·&nbsp; <a href="https://cs50.harvard.edu/x/" target="_blank" style="color:inherit;text-decoration:none;">Harvard CS50</a> &nbsp;·&nbsp; <a href="https://stepik.org/org/fefu" target="_blank" style="color:inherit;text-decoration:none;">ДВФУ</a></div>
-    <div class="edu-detail" style="margin-top:4px;color:var(--t-mid);font-size:11px;">
-      <a href="https://stepik.org/cert/2340486" target="_blank" style="color:inherit;text-decoration:none;">Тренажер SQL</a>
-      &nbsp;·&nbsp;
-      <a href="https://stepik.org/cert/2331544" target="_blank" style="color:inherit;text-decoration:none;">Введение в БД</a>
-      &nbsp;·&nbsp;
-      <a href="https://stepik.org/cert/2346365" target="_blank" style="color:inherit;text-decoration:none;">Linux</a>
-      &nbsp;·&nbsp;
-      <a href="https://stepik.org/cert/2312005" target="_blank" style="color:inherit;text-decoration:none;">ОС</a>
-      &nbsp;·&nbsp;
-      <a href="https://stepik.org/cert/2292048" target="_blank" style="color:inherit;text-decoration:none;">Архитектура ЭВМ</a>
+    <div class="edu-block">
+      <div class="edu-name">МФПУ · Профильное IT образование <span style="color:var(--t-mid);font-weight:300;font-size:12px;font-family:'DM Sans',sans-serif;">· Fullstack · 2026</span></div>
+      <div class="edu-detail" style="margin-top:6px;"><span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--t-mid);">курсы</span> &nbsp;·&nbsp; МФТИ &nbsp;·&nbsp; <a href="https://stepik.org/org/compscicenter" target="_blank" style="color:inherit;text-decoration:none;">CS Center</a> &nbsp;·&nbsp; <a href="https://cs50.harvard.edu/x/" target="_blank" style="color:inherit;text-decoration:none;">Harvard CS50</a> &nbsp;·&nbsp; <a href="https://stepik.org/org/fefu" target="_blank" style="color:inherit;text-decoration:none;">ДВФУ</a></div>
+      <div class="edu-detail" style="margin-top:4px;color:var(--t-mid);font-size:11px;">
+        <a href="https://stepik.org/cert/2340486" target="_blank" style="color:inherit;text-decoration:none;">Тренажер SQL</a>
+        &nbsp;·&nbsp;
+        <a href="https://stepik.org/cert/2331544" target="_blank" style="color:inherit;text-decoration:none;">Введение в БД</a>
+        &nbsp;·&nbsp;
+        <a href="https://stepik.org/cert/2346365" target="_blank" style="color:inherit;text-decoration:none;">Linux</a>
+        &nbsp;·&nbsp;
+        <a href="https://stepik.org/cert/2312005" target="_blank" style="color:inherit;text-decoration:none;">ОС</a>
+        &nbsp;·&nbsp;
+        <a href="https://stepik.org/cert/2292048" target="_blank" style="color:inherit;text-decoration:none;">Архитектура ЭВМ</a>
+      </div>
     </div>
   </main>
 </div>
